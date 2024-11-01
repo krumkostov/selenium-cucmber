@@ -11,12 +11,11 @@ public class LoginSteps extends BaseTest {
 
     @Given("the user is on the login page")
     public void theUserIsOnTheLoginPage() {
-        setUp(); // Ensure driver is initialized
+        setUp();
     }
 
     @When("the user enters valid credentials")
     public void theUserEntersValidCredentials() {
-        // Login is already handled by BaseTest
     }
 
     @Then("the user should be redirected to the homepage")
@@ -71,11 +70,11 @@ public class LoginSteps extends BaseTest {
     }
 
     @Then("the user verifies the products {string} and {string} are displayed in the cart")
-    public void theUserVerifiesTheProductsAreDisplayedInTheCart(String firstProduct, String secondProduct) {
-        boolean isFirstProductDisplayed = cartPage.isProductDisplayedInCart(firstProduct);
-        boolean isSecondProductDisplayed = cartPage.isProductDisplayedInCart(secondProduct);
-        assertTrue(isFirstProductDisplayed, firstProduct + " is not displayed in the cart");
-        assertTrue(isSecondProductDisplayed, secondProduct + " is not displayed in the cart");
+    public void theUserVerifiesTheProductsAreDisplayedInTheCart(String thirdProduct, String fourthProduct) {
+        boolean isFirstProductDisplayed = cartPage.isProductDisplayedInCart(thirdProduct);
+        boolean isSecondProductDisplayed = cartPage.isProductDisplayedInCart(fourthProduct);
+        assertTrue(isFirstProductDisplayed, thirdProduct + " is not displayed in the cart");
+        assertTrue(isSecondProductDisplayed, fourthProduct + " is not displayed in the cart");
     }
 
 }

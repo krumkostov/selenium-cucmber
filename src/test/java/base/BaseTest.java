@@ -9,10 +9,10 @@ import pages.ProductsPage;
 import pages.CartPage;
 
 public class BaseTest {
-    protected WebDriver driver;
-    protected LoginPage loginPage;
+    public WebDriver driver;
+    public LoginPage loginPage;
     public ProductsPage productsPage;
-    protected CartPage cartPage;
+    public CartPage cartPage;
 
 
     @BeforeClass
@@ -23,6 +23,7 @@ public class BaseTest {
         driver.get("https://www.saucedemo.com/");
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
+        cartPage = new CartPage(driver);
         login();
     }
 

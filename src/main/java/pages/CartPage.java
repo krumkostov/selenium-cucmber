@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.TimeoutException;
 import java.time.Duration;
 
 public class CartPage {
@@ -13,12 +14,16 @@ public class CartPage {
 
     public CartPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     public boolean isProductDisplayedInCart(String productId) {
-        By product = By.xpath("//div[contains(text(), '" + productId + "')]");
-        WebElement productElement = wait.until(ExpectedConditions.visibilityOfElementLocated(product));
-        return productElement.isDisplayed();
+        By product = By.id("remove-" + productId);
+        try {
+            WebElement productElement = wait.until(ExpectedConditions.visibilityOfElementLocated(product));
+            return productElement.isDisplayed();
+        } catch (TimeoutException e) {
+            return false;
+        }
     }
 }

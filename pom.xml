@@ -35,6 +35,11 @@
             <artifactId>webdrivermanager</artifactId>
             <version>5.5.3</version>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.32</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -55,6 +60,8 @@
                 <configuration>
                     <includes>
                         <include>**/*Test.java</include>
+                        <include>**/*Tests.java</include> <!-- Добавете това, ако имате класове с -Tests -->
+                        <include>**/*CucumberTest.java</include> <!-- Добавете, ако имате Cucumber тестови класове -->
                     </includes>
                 </configuration>
             </plugin>
